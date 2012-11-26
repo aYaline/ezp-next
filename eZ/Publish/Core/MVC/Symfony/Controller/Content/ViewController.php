@@ -53,7 +53,7 @@ class ViewController extends Controller
             if ( $request->headers->has( 'If-None-Match' )
                 && $this->getParameter( 'content.ttl_cache' ) === true )
             {
-                $response->setVary( 'If-None-Match' );
+                $response->setVary( 'X-User-Hash' );
                 $response->setMaxAge(
                     $this->getParameter( 'content.default_ttl' )
                 );
